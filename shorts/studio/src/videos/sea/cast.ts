@@ -310,18 +310,18 @@ export const stage = (id: number, t: number, cam: CamInfo): Stage => {
     }
     case 6: P({ i: 1, o: MOM, key: "mom", at: Hp(tx - 0.35, seat, tz + 0.72), fo: { mode: "sit", expr: "sad", look: -1 }, blob: false }); break;
     case 7: case 18: {
-      if (id === 7) P({ i: 1, o: MOM, key: "mom", at: Bp(BED[0] - 0.05, 0.66, BED[2] - 0.32), fo: { mode: "stand", expr: ex(t, [0, "sad"], [24.6, "teary"]), look: 1 }, roll: Math.PI / 2, blob: false });
+      if (id === 7) P({ i: 1, o: MOM, key: "mom", at: Bp(BED[0] + 0.85, 0.78, BED[2] - 0.38), fo: { mode: "stand", expr: ex(t, [0, "sad"], [24.6, "teary"]), look: 1 }, roll: -Math.PI / 2, blob: false });
       else P({ i: 1, o: MOM, key: "mom", at: Bp(BED[0] + 0.1, 0.44, BED[2] - 0.7), fo: { mode: "sit", expr: "cry", headTilt: -6 }, blob: false });
       break;
     }
     case 8: {
       if (f < 858) {
         P({ i: 1, o: MOM, key: "mom", at: Hp(tx + 0.45, seat, tz + 0.72), fo: { mode: "sit", expr: ex(t, [0, "neutral"], [27.1, "shock"], [27.75, "proud"]) }, blob: false });
-        const w = stroll(t, 26.3, Hp(-3.8, 0, -1.6), Hp(-0.2, 0, 0.95), 1.0);
+        const w = stroll(t, 26.3, Hp(-3.8, 0, -1.6), Hp(-0.75, 0, 0.2), 1.0);
         P({ i: 2, o: GIRL, key: "girl", at: w.at, fo: { mode: w.moving ? "march" : "stand", phase: w.phase, expr: "laugh", prop: "paperUp" }, scale: KID_S });
       } else {
         P({ i: 1, o: MOM, key: "mom", at: Hp(tx + 0.45, seat, tz + 0.72), fo: { mode: "sit", expr: "soft", prop: "phone", look: -1 }, blob: false });
-        P({ i: 2, o: GIRL, key: "girl", at: Hp(tx - 0.2, 0, tz + 0.95), fo: { mode: "stand", expr: "grin", prop: "paper" }, scale: KID_S });
+        P({ i: 2, o: GIRL, key: "girl", at: Hp(tx + 0.0, 0, tz + 1.3), fo: { mode: "stand", expr: "grin", prop: "paper" }, scale: KID_S });
       }
       break;
     }
@@ -329,13 +329,13 @@ export const stage = (id: number, t: number, cam: CamInfo): Stage => {
     case 10: {
       P({ i: 2, o: GIRL, key: "girl", at: Hp(tx - 0.35, seat, tz + 0.72), fo: { mode: "sit", expr: "laugh" }, scale: KID_S, blob: false });
       P({ i: 5, o: BOY, key: "boy", at: Hp(tx + 0.45, seat, tz + 0.72), fo: { mode: "sit", expr: "grin" }, scale: BOY_S, blob: false });
-      P({ i: 1, o: MOM, key: "mom", at: Hp(tx - 1.55, 0, tz + 0.55), fo: { mode: "stand", expr: ex(t, [0, "smile_closed"], [36.4, "soft"]), prop: "phoneUp", facing: 1 } });
+      P({ i: 1, o: MOM, key: "mom", at: Hp(tx - 0.95, 0, tz + 1.05), fo: { mode: "stand", expr: ex(t, [0, "smile_closed"], [36.4, "soft"]), prop: "phoneUp", facing: 1 } });
       capOnChair(out, ...Hp(tx + 1.12, 0.6, tz));
       break;
     }
     case 11: P({ i: 1, o: MOM, key: "mom", at: Hp(4.0, 0, 2.95), fo: { mode: "stand", expr: ex(t, [0, "tired"], [40.2, "sad"], [PH.areYouOk, "teary"]) } }); break;
     case 12: {
-      if (f < 1410) P({ i: 1, o: MOM, key: "mom", at: Hp(4.0, 0, 2.95), fo: { mode: "stand", expr: "stern", prop: "wrench" } });
+      if (f < 1410) P({ i: 1, o: MOM, key: "mom", at: Hp(4.0, 0, 2.95), fo: { mode: "stand", expr: "stern", prop: "wrenchUp" } });
       else { const w = stroll(t, 47.0, Hp(-1.9, 0, 1.7), Hp(0.4, 0, 1.5), 2.0); P({ i: 1, o: MOM, key: "mom", at: w.at, fo: { mode: w.moving ? "stroll" : "stand", phase: w.phase, expr: "stern", prop: "sack" } }); }
       break;
     }

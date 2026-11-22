@@ -111,21 +111,21 @@ const S3b = (f: number) => dolly(H(-1.0, 1.7, -3.0), H(1.05, 1.0, 0.6), pushK(f,
 const S3c = (f: number) => dolly(H(0.2, 1.5, -1.3), H(0.7, 1.05, 0.9), pushK(f, 261, 0.003), { fov: 38 });
 const S3d = (f: number) => dolly(H(-0.5, 1.9, -6.6), H(0.3, 1.2, 1.8), pushK(f, 292, 0.0015), { fov: 46 });
 // shot 4: at the store: her face smiling, then the group laughing with the kids at play
-const S4a = (f: number) => dolly([-11.4, G + 1.65, 12.6], [-12.2, G + 1.45, 15.0], pushK(f, 368, 0.0015), { fov: 38 });
+const S4a = (f: number) => dolly([-11.6, G + 1.65, 12.4], [-12.0, G + 1.45, 15.4], pushK(f, 368, 0.0015), { fov: 38 });
 const S4b = (f: number) => dolly([-6.5, G + 2.2, 6.5], [-12.4, G + 1.1, 14.6], pushK(f, 430, 0.0015), { fov: 44, roll: 0.02 });
 // shot 5: her face, closer; the smile fades
-const S5a = (f: number) => dolly([-11.6, G + 1.62, 13.4], [-12.2, G + 1.5, 15.1], pushK(f, 560, 0.003), { fov: 34 });
+const S5a = (f: number) => dolly([-11.85, G + 1.6, 13.3], [-12.0, G + 1.5, 15.4], pushK(f, 560, 0.003), { fov: 34 });
 // shot 6: night, alone at the table, high and wide
 const S6a = (f: number) => dolly(H(-2.2, 3.1, -3.6), H(0.5, 0.8, 0.6), pushK(f, 604, 0.0018), { fov: 44, roll: 0.02 });
 // shot 7: bedroom: from the foot of the bed, low
 const S7a = (f: number) => dolly(B(-1.0, 1.35, -2.6), B(-1.4, 0.55, 1.4), pushK(f, 690, 0.002), { fov: 44 });
 // shot 8: the girl runs in with her certificate; then mom texting (MS)
 const S8a = (f: number) => dolly(H(-1.2, 1.5, -2.4), H(0.4, 1.0, 0.8), pushK(f, 790, 0.002), { fov: 42 });
-const S8b = (f: number) => dolly(H(0.0, 1.35, -0.9), H(0.62, 1.15, 1.05), pushK(f, 858, 0.0025), { fov: 36 });
+const S8b = (f: number) => dolly(H(0.55, 1.4, -0.9), H(0.85, 1.12, 1.15), pushK(f, 858, 0.0025), { fov: 40 });
 // shot 9: sofa at night, the phone in her lap, the clock
 const S9a = (f: number) => dolly(H(-2.4, 1.4, -0.6), H(-3.6, 1.15, 2.9), pushK(f, 927, 0.002), { fov: 42, roll: -0.02 });
 // shot 10: birthday at the table
-const S10a = (f: number) => dolly(H(0.9, 1.55, -2.2), H(0.6, 1.0, 0.7), pushK(f, 1027, 0.0018), { fov: 42 });
+const S10a = (f: number) => dolly(H(0.6, 1.75, -2.9), H(0.55, 1.05, 0.8), pushK(f, 1027, 0.0018), { fov: 48 });
 // shot 11: at the sink alone (side), then her face on "are you okay?"
 const S11a = (f: number) => dolly(H(1.6, 1.55, 0.9), H(4.1, 1.2, 2.7), pushK(f, 1165, 0.0015), { fov: 42 });
 const S11b = (f: number) => dolly(H(3.4, 1.62, 1.55), H(3.9, 1.6, 2.45), pushK(f, 1270, 0.003), { fov: 34 });
@@ -135,7 +135,7 @@ const S12b = (f: number) => dolly(H(-1.5, 1.3, -2.6), H(-0.6, 1.1, 0.6), pushK(f
 // shot 13: rain: sitting on the floor against the sofa, the dark window
 const S13a = (f: number) => dolly(H(-1.0, 1.0, -1.2), H(-3.2, 0.7, 2.2), pushK(f, 1475, 0.0018), { fov: 46 });
 // shot 14: the photo held to her chest, close
-const S14a = (f: number) => dolly(H(-2.55, 0.95, 0.75), H(-3.1, 0.82, 2.15), pushK(f, 1615, 0.0025), { fov: 36 });
+const S14a = (f: number) => dolly(H(-2.5, 0.95, 0.45), H(-3.12, 0.66, 2.13), pushK(f, 1615, 0.0025), { fov: 38 });
 // shot 15: night town from over the sea: lit windows, a wife at every door
 const S15a = (f: number) => dolly([6, G + 6.5, -16], [0, G + 2.0, 16], pushK(f, 1693, 0.0015), { fov: 48 });
 // shot 16: dusk porch: wide from the side, then her face
