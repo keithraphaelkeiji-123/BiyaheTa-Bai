@@ -7,7 +7,7 @@ const browserExecutable = "/opt/pw-browsers/chromium_headless_shell-1243/chrome-
 const chromiumOptions = { gl: "swangle" };
 const inputProps = JSON.parse(props);
 const serveUrl = await bundle({ entryPoint: path.resolve("src/index.tsx"), publicDir: path.resolve("public") });
-const composition = await selectComposition({ serveUrl, id: "LakeShort", browserExecutable, chromiumOptions, inputProps });
+const composition = await selectComposition({ serveUrl, id: process.env.COMP || "LakeShort", browserExecutable, chromiumOptions, inputProps });
 const [a, b] = range.split("-").map(Number);
 let t0 = Date.now(), last = 0;
 await renderMedia({ composition, serveUrl, codec: "h264", outputLocation: out, scale: Number(scale), browserExecutable, chromiumOptions, inputProps,

@@ -118,7 +118,7 @@ const S5a = (f: number) => dolly([-11.85, G + 1.6, 13.3], [-12.0, G + 1.5, 15.4]
 // shot 6: night, alone at the table, high and wide
 const S6a = (f: number) => dolly(H(-2.2, 3.1, -3.6), H(0.5, 0.8, 0.6), pushK(f, 604, 0.0018), { fov: 44, roll: 0.02 });
 // shot 7: bedroom: from the foot of the bed, low
-const S7a = (f: number) => dolly(B(-1.0, 1.35, -2.6), B(-1.4, 0.55, 1.4), pushK(f, 690, 0.002), { fov: 44 });
+const S7a = (f: number) => dolly(B(-1.3, 1.5, -2.1), B(-1.5, 0.7, 1.0), pushK(f, 690, 0.002), { fov: 46 });
 // shot 8: the girl runs in with her certificate; then mom texting (MS)
 const S8a = (f: number) => dolly(H(-1.2, 1.5, -2.4), H(0.4, 1.0, 0.8), pushK(f, 790, 0.002), { fov: 42 });
 const S8b = (f: number) => dolly(H(0.55, 1.4, -0.9), H(0.85, 1.12, 1.15), pushK(f, 858, 0.0025), { fov: 40 });
@@ -150,7 +150,7 @@ const S19a = (f: number) => dolly(H(-0.2, 1.4, -1.6), H(-0.8, 1.35, 3.0), pushK(
 const S19b = (f: number) => dolly(H(-1.8, 1.3, -1.6), H(-1.9, 1.0, 1.3), pushK(f, 2118, 0.0025), { fov: 40 });
 const S19c = (f: number) => dolly(H(-1.75, 1.35, -1.3), H(-1.9, 1.15, 1.3), pushK(f, 2140, 0.002), { fov: 40 });
 // shot 20: the pier at sunset: wives and kids waving at the ship on the horizon, then her and the kids
-const S20a = (f: number) => dolly([PIER_X + 8, PIER_Y + 3.0, -PIER_L + 15], [PIER_X - 0.5, PIER_Y + 1.1, -PIER_L - 4], pushK(f, 2213, 0.0012), { fov: 46, roll: -0.02 });
+const S20a = (f: number) => dolly([PIER_X + 4, PIER_Y + 2.6, -PIER_L + 13], [PIER_X - 1, PIER_Y + 1.2, -PIER_L - 6], pushK(f, 2213, 0.0012), { fov: 46, roll: -0.02 });
 const S20b = (f: number) => dolly([PIER_X - 1.3, PIER_Y + 1.3, -PIER_L - 0.6], [PIER_X + 0.1, PIER_Y + 1.0, -PIER_L + 3.4], pushK(f, 2330, 0.002), { fov: 42 });
 // shot 21: her face (soft smile), then crane up to the sun and the ship
 const S21a = (f: number) => dolly([PIER_X - 0.15, PIER_Y + 1.6, -PIER_L + 1.4], [PIER_X + 0.2, PIER_Y + 1.53, -PIER_L + 3.2], pushK(f, 2445, 0.0025), { fov: 34 });

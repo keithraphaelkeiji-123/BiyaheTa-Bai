@@ -497,7 +497,7 @@ const PROP_DRAW: Record<string, PD> = {
   wrench: (p, hx, hy, u) => { p.band([[hx, hy + 8 * u], [hx + 18 * u, hy - 40 * u]], "#9aa1aa", 5 * u, 1.4 * u, "round"); p.ell(hx + 20 * u, hy - 44 * u, 8 * u, 8 * u, "#9aa1aa", 1.6 * u); p.dot(hx + 22 * u, hy - 49 * u, 3.4 * u, "#6a707a"); },
   wrenchUp: (p, hx, hy, u) => { p.band([[hx, hy + 8 * u], [hx + 10 * u, hy - 46 * u]], "#9aa1aa", 6 * u, 1.4 * u, "round"); p.ell(hx + 11 * u, hy - 52 * u, 10 * u, 10 * u, "#9aa1aa", 1.8 * u); p.dot(hx + 14 * u, hy - 58 * u, 4.4 * u, "#6a707a"); },
   plate: (p, hx, hy, u) => { p.ell(hx, hy - 4 * u, 24 * u, 8 * u, "#f7f4ee", 1.8 * u); p.ell(hx - 6 * u, hy - 8 * u, 10 * u, 5 * u, "#fbfaf6", 1 * u); p.ell(hx + 8 * u, hy - 7 * u, 8 * u, 4 * u, "#b5653f", 1 * u); },
-  sack: (p, hx, hy, u, W, HH) => { const cx = hx + 0.16 * W, cy = hy - 0.06 * HH; p.ell(cx, cy, 0.3 * W, 0.24 * HH, "#eadfc4", 2.4 * u, 0, 360, -20); p.band([[cx - 0.22 * W, cy + 8 * u], [cx + 0.2 * W, cy - 18 * u]], "#3b7fd0", 6 * u, 1 * u); },
+  sack: (p, hx, hy, u, W, HH) => { const cx = hx + 0.3 * W, cy = hy - 0.02 * HH; p.ell(cx, cy, 0.3 * W, 0.24 * HH, "#eadfc4", 2.4 * u, 0, 360, -20); p.band([[cx - 0.22 * W, cy + 8 * u], [cx + 0.2 * W, cy - 18 * u]], "#3b7fd0", 6 * u, 1 * u); },
   bag: (p, hx, hy, u) => {
     p.arc(hx, hy + 8 * u, 9 * u, 10 * u, 180, 360, 2 * u);
     p.poly([[hx - 18 * u, hy + 10 * u], [hx + 18 * u, hy + 10 * u], [hx + 22 * u, hy + 52 * u], [hx - 22 * u, hy + 52 * u]], "#f4f1ea", 2 * u);
@@ -589,7 +589,7 @@ export const bodyFront = (p: Pen, o: Outfit, opts: FrontOpts) => {
   const pn = typeof prop === "string" ? prop : null;
   const oneHand = (n: string): Arm => {
     const S = sh(1);
-    if (n === "phoneUp") return { pts: [S, [tcx + 1.1 * T.a + 12 * u, S[1] - 0.05 * HH], [tcx + 0.95 * T.a + 10 * u, S[1] - 0.5 * HH]], front: true };
+    if (n === "phoneUp") return { pts: [S, [tcx + 1.25 * T.a + 16 * u, S[1] - 0.02 * HH], [tcx + 1.35 * T.a + 24 * u, S[1] - 0.42 * HH]], front: true };
     if (n === "paperUp" || n === "wrenchUp") return { pts: [S, [tcx + 1.15 * T.a + 12 * u, S[1] - 0.2 * HH], [tcx + 1.0 * T.a + 12 * u, S[1] - 0.72 * HH]], front: true };
     if (n === "sack") return { pts: [S, [tcx + 1.15 * T.a + 8 * u, S[1] - 0.02 * HH], [tcx + 0.95 * T.a + 4 * u, S[1] - 0.36 * HH]], front: true };
     return { pts: [S, [tcx + 1.05 * T.a + 4 * u, S[1] + 0.45 * HH], [tcx + 0.42 * T.a, S[1] + 0.38 * HH]], front: true };

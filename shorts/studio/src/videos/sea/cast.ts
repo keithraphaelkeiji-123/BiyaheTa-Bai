@@ -329,7 +329,7 @@ export const stage = (id: number, t: number, cam: CamInfo): Stage => {
     case 10: {
       P({ i: 2, o: GIRL, key: "girl", at: Hp(tx - 0.35, seat, tz + 0.72), fo: { mode: "sit", expr: "laugh" }, scale: KID_S, blob: false });
       P({ i: 5, o: BOY, key: "boy", at: Hp(tx + 0.45, seat, tz + 0.72), fo: { mode: "sit", expr: "grin" }, scale: BOY_S, blob: false });
-      P({ i: 1, o: MOM, key: "mom", at: Hp(tx - 0.95, 0, tz + 1.05), fo: { mode: "stand", expr: ex(t, [0, "smile_closed"], [36.4, "soft"]), prop: "phoneUp", facing: 1 } });
+      P({ i: 1, o: MOM, key: "mom", at: Hp(tx - 0.55, 0, tz + 1.15), fo: { mode: "stand", expr: ex(t, [0, "smile_closed"], [36.4, "soft"]), prop: "phoneUp", facing: 1 } });
       capOnChair(out, ...Hp(tx + 1.12, 0.6, tz));
       break;
     }
