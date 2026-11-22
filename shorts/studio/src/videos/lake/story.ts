@@ -275,3 +275,15 @@ export const H = (x: number, z: number) => {
   }
   return h;
 };
+
+// ---------------- voice re-timing (ElevenLabs read) ----------------
+// The picture is authored against the first voice's timeline; warp.json maps each sentence of the new read onto it
+// (sentence starts and ends, aligned by pauses). Every new output frame shows the old timeline at remapF(frame).
+import WARP from "./warp.json";
+export const OUT_FRAMES: number = WARP.total;
+export const remapF = (fNew: number) => {
+  const t = fNew / FPS, N = WARP.new, O = WARP.old;
+  if (t <= N[0]) return O[0] * FPS;
+  for (let i = 1; i < N.length; i++) if (t <= N[i]) return (O[i - 1] + ((O[i] - O[i - 1]) * (t - N[i - 1])) / (N[i] - N[i - 1])) * FPS;
+  return O[O.length - 1] * FPS;
+};
