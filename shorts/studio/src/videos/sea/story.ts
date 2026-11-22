@@ -137,20 +137,20 @@ const S13a = (f: number) => dolly(H(-1.0, 1.0, -1.2), H(-3.2, 0.7, 2.2), pushK(f
 // shot 14: the photo held to her chest, close
 const S14a = (f: number) => dolly(H(-2.5, 0.95, 0.45), H(-3.12, 0.66, 2.13), pushK(f, 1615, 0.0025), { fov: 38 });
 // shot 15: night town from over the sea: lit windows, a wife at every door
-const S15a = (f: number) => dolly([6, G + 6.5, -16], [0, G + 2.0, 16], pushK(f, 1693, 0.0015), { fov: 48 });
+const S15a = (f: number) => dolly([3, G + 10, -30], [-2, G + 2.2, 16], pushK(f, 1693, 0.0015), { fov: 46 });
 // shot 16: dusk porch: wide from the side, then her face
 const S16a = (f: number) => dolly([-7.5, G + 1.6, 9.5], [0.2, G + 1.2, 15.4], pushK(f, 1835, 0.0015), { fov: 42 });
-const S16b = (f: number) => dolly([-1.0, G + 1.3, 13.6], [0.0, G + 1.25, 15.5], pushK(f, 1922, 0.002), { fov: 34 });
+const S16b = (f: number) => dolly([-0.75, G + 1.4, 13.9], [-0.2, G + 1.3, 16.15], pushK(f, 1922, 0.002), { fov: 36 });
 // shot 17: asleep on the bills
-const S17a = (f: number) => dolly(H(-0.4, 1.35, -0.8), H(0.55, 0.95, 0.75), pushK(f, 1987, 0.003), { fov: 38 });
+const S17a = (f: number) => dolly(H(0.45, 1.45, -0.7), H(1.0, 0.98, 1.1), pushK(f, 1987, 0.003), { fov: 40 });
 // shot 18: crying on the bed
 const S18a = (f: number) => dolly(B(0.0, 1.2, -1.2), B(-1.2, 0.95, 0.9), pushK(f, 2018, 0.003), { fov: 38 });
 // shot 19: the window opens (morning); hugging the kids; together with dad on the phone
 const S19a = (f: number) => dolly(H(-0.2, 1.4, -1.6), H(-0.8, 1.35, 3.0), pushK(f, 2070, 0.002), { fov: 42 });
-const S19b = (f: number) => dolly(H(-0.6, 1.25, -1.8), H(-0.7, 1.0, 1.2), pushK(f, 2118, 0.0025), { fov: 40 });
-const S19c = (f: number) => dolly(H(-0.6, 1.3, -1.4), H(-0.7, 1.15, 1.2), pushK(f, 2140, 0.002), { fov: 38 });
+const S19b = (f: number) => dolly(H(-1.8, 1.3, -1.6), H(-1.9, 1.0, 1.3), pushK(f, 2118, 0.0025), { fov: 40 });
+const S19c = (f: number) => dolly(H(-1.75, 1.35, -1.3), H(-1.9, 1.15, 1.3), pushK(f, 2140, 0.002), { fov: 40 });
 // shot 20: the pier at sunset: wives and kids waving at the ship on the horizon, then her and the kids
-const S20a = (f: number) => dolly([PIER_X + 9, PIER_Y + 3.2, -PIER_L + 16], [PIER_X - 2, PIER_Y + 1.0, -PIER_L - 6], pushK(f, 2213, 0.0012), { fov: 46, roll: -0.02 });
+const S20a = (f: number) => dolly([PIER_X + 8, PIER_Y + 3.0, -PIER_L + 15], [PIER_X - 0.5, PIER_Y + 1.1, -PIER_L - 4], pushK(f, 2213, 0.0012), { fov: 46, roll: -0.02 });
 const S20b = (f: number) => dolly([PIER_X - 1.3, PIER_Y + 1.3, -PIER_L - 0.6], [PIER_X + 0.1, PIER_Y + 1.0, -PIER_L + 3.4], pushK(f, 2330, 0.002), { fov: 42 });
 // shot 21: her face (soft smile), then crane up to the sun and the ship
 const S21a = (f: number) => dolly([PIER_X - 0.15, PIER_Y + 1.6, -PIER_L + 1.4], [PIER_X + 0.2, PIER_Y + 1.53, -PIER_L + 3.2], pushK(f, 2445, 0.0025), { fov: 34 });

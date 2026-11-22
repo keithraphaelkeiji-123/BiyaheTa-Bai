@@ -351,9 +351,9 @@ export const stage = (id: number, t: number, cam: CamInfo): Stage => {
       if (f < 2118) P({ i: 1, o: MOM, key: "mom", at: Hp(-0.8, 0, 3.0), fo: { mode: "stand", expr: ex(t, [0, "neutral"], [69.4, "soft"]) } });
       else {
         const hug = f < 2140;
-        P({ i: 1, o: MOM, key: "mom", at: Hp(-0.7, 0, 1.3), fo: { mode: "stand", expr: hug ? "softTear" : "soft", prop: hug ? "hug" : "phoneUp" } });
-        P({ i: 2, o: GIRL, key: "girl", at: Hp(-1.15, 0, 1.0), fo: { mode: "stand", expr: "laugh", facing: 1 }, scale: KID_S });
-        P({ i: 5, o: BOY, key: "boy", at: Hp(-0.25, 0, 0.95), fo: { mode: "stand", expr: hug ? "laugh" : "grin", facing: -1, wave: hug ? undefined : q(0.5 + 0.5 * Math.sin(t * 7), 10) }, scale: BOY_S });
+        P({ i: 1, o: MOM, key: "mom", at: Hp(-1.9, 0, 1.5), fo: { mode: "stand", expr: hug ? "softTear" : "soft", prop: hug ? "hug" : "phoneUp" } });
+        P({ i: 2, o: GIRL, key: "girl", at: Hp(-2.4, 0, 1.15), fo: { mode: "stand", expr: "laugh", facing: 1 }, scale: KID_S });
+        P({ i: 5, o: BOY, key: "boy", at: Hp(-1.4, 0, 1.1), fo: { mode: "stand", expr: hug ? "laugh" : "grin", facing: -1, wave: hug ? undefined : q(0.5 + 0.5 * Math.sin(t * 7), 10) }, scale: BOY_S });
       }
       break;
     }
