@@ -160,7 +160,8 @@ export class World {
     const half = (g: THREE.Group, s: number) => {
       const gb = new Batch(), L = STREET_W - 0.4;
       bx(gb, iron, -1.4, -0.9, 0, 1.4, 0, -s * L); bx(gb, iron, -1.5, 0, 0, 1.5, 0.18, -s * L);
-      for (let zz = 0.6; zz < L; zz += 1.2) gb.add(new THREE.BoxGeometry(0.1, 0.9, 1.4).rotateX(0.6 * s).translate(1.38, -0.45, -s * zz), iron);
+      for (const xx of [-1.42, 1.42]) bx(gb, iron, xx - 0.05, -0.9, Math.min(0, -s * L), xx + 0.05, 0, Math.max(0, -s * L));
+      for (let zz = 1.0; zz < L; zz += 1.6) for (const xx of [-1.48, 1.48]) bx(gb, iron, xx - 0.04, -0.9, -s * zz - 0.08, xx + 0.04, 0, -s * zz + 0.08);
       for (const r of [-0.72, 0.72]) bx(gb, col("#6a5a4a"), r - 0.08, 0.18, 0, r + 0.08, 0.32, -s * L);
       gb.build(g); g.position.set(RAIL_X, RAIL_Y, s * (STREET_W - 0.4)); S.add(g);
     };
@@ -219,16 +220,15 @@ export class World {
     bx(lbch, darkWall, -6, 0, 3.0, 6, 4, 3.2, 3); bx(lbch, darkWall, -6.2, 0, -5, -6, 4, 3.2, 3);
     bx(lbch, col("#7a4a2a"), -0.9, 0.82, -0.5, 0.9, 0.9, 0.5); for (const [a, b] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) bx(lbch, col("#5a3a2a"), a * 0.82 - 0.05, 0, b * 0.42 - 0.05, a * 0.82 + 0.05, 0.82, b * 0.42 + 0.05);
     // the jar of molasses and the thermometer stand
-    lbch.add(new THREE.CylinderGeometry(0.17, 0.17, 0.26, 28).translate(0.25, 1.03, 0), col("#4a2410"));
-    lbch.add(new THREE.TorusGeometry(0.175, 0.012, 6, 28).rotateX(Math.PI / 2).translate(0.25, 1.2, 0), col("#cfe6f6"));
+    lbch.add(new THREE.CylinderGeometry(0.21, 0.19, 0.3, 28, 1, true).translate(0.25, 1.05, 0), lam("barrel", () => ({ color: "#d09a5a", side: THREE.DoubleSide })));
+    for (const yy of [0.95, 1.15]) lbch.add(new THREE.TorusGeometry(0.205, 0.012, 6, 28).rotateX(Math.PI / 2).translate(0.25, yy, 0), col("#3a3d47"));
     lbch.add(new THREE.CylinderGeometry(0.03, 0.04, 0.6, 10).translate(-0.35, 1.2, 0.05), col("#e9ecef"));
     lbch.add(new THREE.SphereGeometry(0.05, 12, 8).translate(-0.35, 0.93, 0.05), col("#d2453c"));
     // the wading trough
     bx(lbch, col("#5a4a3a"), -4.2, 0, -0.2, -0.9, 0.7, 0.0); bx(lbch, col("#5a4a3a"), -4.2, 0, 1.8, -0.9, 0.7, 2.0); bx(lbch, col("#5a4a3a"), -4.4, 0, -0.2, -4.2, 0.7, 2.0); bx(lbch, col("#5a4a3a"), -0.9, 0, -0.2, -0.7, 0.7, 2.0);
     lbch.build(Lg);
     this.trough = mesh(new THREE.BoxGeometry(3.3, 0.04, 1.8).translate(-2.55, 0.62, 0.9), this.gooM, Lg, false);
-    const gl = new THREE.Mesh(new THREE.CylinderGeometry(0.19, 0.19, 0.32, 28, 1, true).translate(0.25, 1.06, 0), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.75, 0.85, 0.95), transparent: true, opacity: 0.12, depthWrite: false }));
-    gl.layers.set(NOINK); Lg.add(gl);
+    mesh(new THREE.CircleGeometry(0.2, 28).rotateX(-Math.PI / 2).translate(0.25, 1.16, 0), this.gooM, Lg, false); // the molasses surface
     this.thermo = mesh(new THREE.CylinderGeometry(0.014, 0.014, 1, 8).translate(0, 0.5, 0), glowM(2.4, 0.3, 0.2), Lg, false); this.thermo.position.set(-0.35, 0.95, 0.08); this.thermo.layers.set(NOINK);
     const sp = new Batch(); sp.add(new THREE.BoxGeometry(0.03, 0.42, 0.012).translate(0, 0.21, 0), col("#c9ced4")); sp.add(new THREE.SphereGeometry(0.045, 12, 8).scale(1, 0.5, 1.4).translate(0, 0, 0), col("#c9ced4")); sp.build(this.spoon);
     this.spoon.position.set(0.25, 1.13, 0); Lg.add(this.spoon);
@@ -327,7 +327,7 @@ export class World {
       const am = p.userData.am as number, j = 0.75 + 0.5 * Math.abs(Math.sin(i * 12.9898));
       p.rotation.set(0, am, 0); p.rotateX(1.35 * bu * j);
     }
-    this.ladder.visible = !burst && !s.summer && tau > 17.5;
+    this.ladder.visible = !burst && !s.summer && (id === 4 || id === 5);
     this.bucket.visible = id === 5;
     // ---- wave + goo ----
     const X = waveX(tau), Hh = waveH(tau), x0 = TANK[0] + TANK_R - 0.5;

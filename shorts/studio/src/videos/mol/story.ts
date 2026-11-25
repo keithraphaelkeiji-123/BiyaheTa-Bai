@@ -129,7 +129,7 @@ const S9 = (f: number) => dolly([0.8, 1.7, 3.6], [-2.4, 1.15, 0.2], pushK(f, 125
 const S10 = (f: number) => dolly([40, 14, 0.5], [-8, 0.6, 0], pushK(f, 1395, 0.001), { fov: 46 });
 // 11 the viscosity table: jar macro, the spoon, the thermometer, the wading man
 const S11a = (f: number) => dolly(Lb(-0.2, 1.35, -1.25), Lb(0, 1.05, 0), pushK(f, 1455, 0.002), { fov: 38 });
-const S11b = (f: number) => dolly(Lb(0.55, 1.25, -0.75), Lb(0.25, 1.05, 0), pushK(f, 1520, 0.0025), { fov: 36, roll: 0.03 });
+const S11b = (f: number) => dolly(Lb(0.65, 1.5, -1.15), Lb(0.2, 1.08, 0), pushK(f, 1520, 0.0025), { fov: 38, roll: 0.03 });
 const S11c = (f: number) => dolly(Lb(-2.2, 1.6, -3.6), Lb(-2.6, 0.9, 0.8), pushK(f, 1595, 0.002), { fov: 44 });
 // 12 the court: the boss points at the "anarchist"; whip to the judge
 const S12a = (f: number) => dolly(Ct(-1.9, 1.6, -4.4), Ct(-1.9, 1.3, 0.3), pushK(f, 1740, 0.0025), { fov: 48 });
