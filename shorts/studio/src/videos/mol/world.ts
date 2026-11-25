@@ -126,9 +126,9 @@ export class World {
     const walk = lam("bostonWalk", () => ({ map: walkTex() }));
     for (const s of [-1, 1]) bx(sb, walk, -62, 0, s > 0 ? STREET_W - 1.6 : -STREET_W - 0.1, 200, 0.12, s > 0 ? STREET_W + 0.1 : -STREET_W + 1.6, 2);
     const yard = lam("yardDirt", () => ({ color: "#9a8a72" }));
-    bx(sb, yard, -62, -0.02, -60, -26, 0.0, 60, 0); // the tank yard
+    bx(sb, yard, -62, -0.06, -60, -26, -0.03, 60, 0); // the tank yard (kept below the cobbles: no z-fighting)
     bx(sb, lam("quay", () => ({ color: "#8f8a80" })), -64, -2.5, -60, -62, 0.05, 60);
-    bx(sb, col("#a89a84"), -26, -0.02, -60, 200, 0.0, -STREET_W - 0.1); bx(sb, col("#a89a84"), -26, -0.02, STREET_W + 0.1, 200, 0.0, 60);
+    bx(sb, col("#a89a84"), -26, -0.06, -60, 200, -0.03, -STREET_W - 0.1); bx(sb, col("#a89a84"), -26, -0.06, STREET_W + 0.1, 200, -0.03, 60);
     // brick rowhouses both sides (fronts at +-STREET_W), with a gap for the shed on the south side
     const BRICKS = ["#b5533f", "#a84a3a", "#c06a4a", "#9a4436", "#b86048"];
     let k = 0;
