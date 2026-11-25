@@ -277,7 +277,7 @@ const stuck = (cam: CamInfo, out: Stage, t: number, id: number) => {
   spots.forEach(([x, z], i) => {
     const e: Expr = id === 8 ? (["nervous", "shock", "nervous", "pained", "shock", "nervous"] as Expr[])[i] : (["pained", "tired", "pained", "sad", "tired", "pained"] as Expr[])[i];
     const sc = i === 4 ? KID_S : 1;
-    put(cam, out, t, { i: 40 + i, o: i === 4 ? KIDS[1] : FOLK[i % 6], key: i === 4 ? "kid1" : `folk${i % 6}`, at: [x, GOO - (i === 4 ? 0.62 : 0.95), z], scale: sc, blob: false,
+    put(cam, out, t, { i: 40 + i, o: i === 4 ? KIDS[1] : FOLK[i % 6], key: i === 4 ? "kid1" : `folk${i % 6}`, at: [x, GOO - (i === 4 ? 0.45 : 0.7), z], scale: sc, blob: false,
       fo: { mode: "stand", expr: e, wave: id === 8 && i % 2 === 0 ? q(0.5 + 0.5 * Math.sin(t * (2.2 - 1.4 * clamp01((t - 39) / 4)) + i), 10) : undefined } });
   });
 };
@@ -343,7 +343,7 @@ export const stage = (id: number, t: number, cam: CamInfo): Stage => {
       P({ i: 1, o: BOSS, key: "boss", at: h(COURT, -1.2, 0, 0.0), fo: { mode: "stand", expr: ex(t, [0, "nervous"], [58.4, "stern"], [60.3, "shock"]), prop: k ? "point" : null, facing: -1 } });
       if (k) P({ i: 70, o: SHADY, key: "shady", at: h(COURT, -2.7, 0, 0.7), fo: { mode: "stand", expr: "nervous", prop: "bomb", facing: 1 } });
       const bang = (t > 60.2 && t < 60.45) || (t > 60.7 && t < 60.95);
-      P({ i: 71, o: JUDGE, key: "judge", at: h(COURT, 1.6, 0.35, 2.75), blob: false, fo: { mode: "stand", expr: ex(t, [0, "neutral"], [60.1, "stern"]), prop: bang ? "gavelDown" : "gavelUp", facing: -1 } });
+      P({ i: 71, o: JUDGE, key: "judge", at: h(COURT, 1.6, 0.8, 2.75), blob: false, fo: { mode: "stand", expr: ex(t, [0, "neutral"], [60.1, "stern"]), prop: bang ? "gavelDown" : "gavelUp", facing: -1 } });
       break;
     }
     case 13: {

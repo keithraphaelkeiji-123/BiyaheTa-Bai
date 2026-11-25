@@ -34,7 +34,7 @@ export const LIGHTS: Record<LName, LightPreset> = {
   },
   night: {
     az: 110, el: 38,
-    lit: [0.62, 0.74, 1.2], shade: [0.1, 0.11, 0.22], lift: [0.02, 0.03, 0.08], lambert: 0.3, sideK: 0.84, term: 0.2,
+    lit: [0.82, 0.92, 1.4], shade: [0.17, 0.18, 0.32], lift: [0.03, 0.04, 0.1], lambert: 0.3, sideK: 0.84, term: 0.2,
     charTint: [0.66, 0.74, 1.0], charShade: 0.8, charGrad: 0.08, bodyGrad: 0.22, sideTint: [0.8, 0.84, 1.0],
     blob: [0.6, 0.6, 0.8], actorShadow: false,
     top: "#0d1436", hor: "#2a3a66", skyCurve: [0.0, 0.5, 0.6], fog: "#1c2a4c", fogNear: 30, fogFar: 320, sunDisc: "#dfe8ff",

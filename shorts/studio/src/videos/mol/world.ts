@@ -347,7 +347,7 @@ export class World {
     const gooOn = (burst && tau > BURST + 3) || (s.set === "street" && tau > 38 && !s.summer);
     this.goo.visible = gooOn && s.set === "street";
     if (this.goo.visible) { const xe = Math.min(X, 44); this.goo.scale.set(xe - x0, 1, 2 * STREET_W + 6); this.goo.position.set((xe + x0) / 2, GOO * 0.98, 0); }
-    this.gooM.color.set("#5c2c10").lerp(new THREE.Color("#3a1c0c"), cold(tau));
+    this.gooM.color.set(s.light === "day" ? "#5c2c10" : "#8a4418").lerp(new THREE.Color(s.light === "day" ? "#3a1c0c" : "#6a3214"), cold(tau));
     if (this.gooM.map) this.gooM.map.offset.x = burst && tau < 39 ? -t * 0.6 : 0;
     // ---- shed + bridge ----
     const sv = smooth((tau - SHOVE) / 0.8);
