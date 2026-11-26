@@ -250,3 +250,182 @@ Measured on all 20 transcripts. The transcripts are not reproduced here.
 Our videos copy these numbers, not the channel's content: own stories, own characters, own voice, no captions.
 Starting values for the three.js + Remotion renderer are in the skill's `templates/bridge/` (lights.ts, ink.ts,
 lensblur.ts, grade.ts, story.ts).
+
+---
+
+# Study 2: four uploaded reference videos, measured frame by frame (2026-11-26)
+
+Source: the 4 videos the user uploaded (the other 16 of the "latest 20" could not be downloaded: YouTube is blocked
+from this machine). All measured at 30 fps with `shorts/analysis/measure.py` (every frame) plus the burned-in captions
+read word by word (no speech-recognition model is reachable here). The videos and full transcripts stay private and are
+not in this repository. Short quotes below are for analysis only; our scripts and characters are always our own.
+
+| | A: sleep / steel balls | B: storm oil | C: job in Japan | D: railroad gaps |
+|---|---|---|---|---|
+| Length | 39.1 s | 64.6 s | 60.5 s | 65.2 s |
+| Source size | 360×640 | 720×1280 | 720×1280 | 720×1280 |
+| Frame rate | 30 | 30 | 30 | 30 |
+
+## S2.1 Lighting, contrast and colour (median of every frame; caption band excluded)
+
+| | A | B | C | D |
+|---|---|---|---|---|
+| Luma mean (0-1) | 0.23 | 0.38 | 0.56 | 0.46 |
+| Luma mean, darkest → brightest frame | 0.10 → 0.60 | 0.17 → 0.91 | 0.26 → 0.92 | 0.17 → 0.87 |
+| Contrast (luma std) | 0.20 | 0.25 | 0.19 | 0.19 |
+| Black point (2nd percentile) | 0.03 | 0.06 | 0.10 | 0.13 |
+| White point (98th percentile) | 0.81 | 0.99 | 0.85 | 0.89 |
+| Saturation (mean) | 0.46 | 0.62 | 0.42 | 0.50 |
+| Warm − blue (R−B mean) | +0.08 | −0.01 | −0.14 | +0.10 |
+| Shadow colour (RGB of the darkest 10 %) | 0.05 0.04 0.04 (near black) | 0.12 0.07 0.14 (purple) | 0.12 0.16 0.33 (blue) | 0.23 0.13 0.17 (mauve) |
+| Highlight colour (brightest 10 %) | 0.78 0.67 0.61 (warm) | 0.90 0.91 0.92 (neutral) | 0.88 0.80 0.79 (warm) | 0.84 0.75 0.81 (warm pink) |
+
+Lighting arc (luma mean per 10 s):
+
+| | 0-10 | 10-20 | 20-30 | 30-40 | 40-50 | 50-60 | 60+ |
+|---|---|---|---|---|---|---|---|
+| A | 0.23 | 0.21 | 0.29 | 0.26 | | | |
+| B | 0.46 | 0.45 | 0.39 | 0.28 | 0.43 | 0.42 | 0.32 |
+| C | 0.51 | 0.60 | 0.64 | 0.48 | 0.55 | 0.38 | |
+| D | 0.37 | 0.48 | 0.41 | 0.41 | 0.48 | 0.47 | 0.57 |
+
+What the numbers show:
+- **Shadows are coloured, never grey**: purple, blue or mauve in 3 of 4. Only the night-room video (A) has near-black shadows.
+- **Highlights stay warm** (red above blue) in 3 of 4: warm key light, cool shadows.
+- **Light follows the story**. B goes from day (0.46) to storm night (0.28) and back to a warm lamp-lit galley for the
+  explanation (0.43), then a dark-blue sea for the payoff (0.32). C ends darker and bluer for the reveal (0.38). The
+  explanation section ("You see, ...") is lit differently from the story in all 4.
+- **A single hard light in the dark** for night or explanation scenes: A is a bare bulb over the character in a black room, and C ends
+  on a wall lamp with blue walls. One amber accent in a cool scene.
+- Saturation 0.42-0.62: strong but not neon. Contrast std 0.19-0.25.
+
+## S2.2 Movement (camera, measured by phase correlation, px per frame at 720 wide)
+
+| | A | B | C | D |
+|---|---|---|---|---|
+| Frames with the camera still (< 0.5 px/f) | 39 % | 22 % | 19 % | 22 % |
+| Median camera speed | 2.0 | 2.8 | 4.0 | 4.5 |
+| Fast frames (> 8 px/f) | 11 % | 27 % | 29 % | 38 % |
+| 90th percentile speed | 8.9 | 18.1 | 20.4 | 32.0 |
+| Fastest frame (whips) | 158 | 71 | 307 | 286 |
+| Move bursts per minute | 54 | 49 | 34 | 41 |
+| Median burst length | 7 f | 15 f | 35 f | 23 f |
+| Median burst peak | 6 px/f | 6 px/f | 11 px/f | 20 px/f |
+
+- **The camera is almost never still**: still on only 19-39 % of frames. It drifts, pushes, tracks and orbits all the time.
+- **About 40-55 separate camera moves per minute**, so a new movement roughly every 1.1-1.8 s.
+- **Whips of 150-300 px per frame** replace cuts when the place changes (see S2.4).
+- Characters are mostly framed big: medium close-ups and close-ups of the face fill 40-60 % of the frame height in
+  about half the 1 fps samples. Every subject is centred in the upper 2/3, above the captions.
+
+## S2.3 Effects (seen in the 1-frame-per-second sheets)
+
+- **X-ray / hologram cut-away**: a translucent blue body showing a pink brain (A).
+- **Info-graphic overlays inside the scene**: depth levels labelled AWAKE / LIGHT SLEEP / DEEP SLEEP, a corkboard
+  of idea cards joined by red string (A), and a phone screen showing "Inbox (0) / No new mail" (C). Labels are in-world
+  signs and screens, not floating captions.
+- **Signs and props carry the jokes**: FIRE button, "CAREER DEVELOPMENT ROOM" door sign (C), "THE CLICKETY CLACK LINE"
+  newspaper, a MAY calendar page (D), "STORM OIL" tin (B).
+- **Colour-coded state change on objects**: the rail gaps glow purple → yellow as they close (D), and the boss's face turns purple
+  when angry (D).
+- **Big physical payoffs**: wave walls, smoke and fire explosions (B, D), light shafts through storm clouds (B), and
+  sound rings around a crash (A).
+- **Anger and emotion marks**: steam puffs from the head, sweat drops, and huge open mouths in extreme close-up (B, C, D).
+
+## S2.4 Cuts and transitions
+
+| | A | B | C | D |
+|---|---|---|---|---|
+| Hard cuts | 1 | 1 | 0 | 0 |
+| White flashes | 0 | 0 | 0 | 0 |
+
+- **0-1 hard cuts per video.** Places change through:
+  - whip pans (150-300 px/f, about 4-8 frames),
+  - fly-throughs (into a porthole, a window or a screen),
+  - zooms into an object that becomes the next scene (the soup bowl turns into the sea in B),
+  - or the camera following a moving thing (oil stream, grappling hook, train).
+- Each video is effectively **one continuous camera**.
+
+## S2.5 Captions (burned in)
+
+| | A | B | C | D |
+|---|---|---|---|---|
+| Text centre (% of frame height) | 70.6 % | 70.2 % | 70.3 % | 70.3 % |
+| Letter height (px at 1920 tall) | ~48 | ~51 | ~51 | ~51 |
+| Caption cards (word changes) | ~113 | ~230 | ~239 | ~207 |
+| Words per card | 1-3 (mostly 1) | 1-3 | 1-3 | 1-3 |
+
+- **Style**:
+  - white heavy sans (Arial-Black-like), with a thick black outline and a soft dark drop shadow,
+  - centred horizontally, mostly in sentence case,
+  - keeps the punctuation ("wake up a genius," / "deck.").
+- **Hard swaps**: no scale or pop animation. The word size is constant from its first frame.
+- **Timing**: a card stays up while its word is spoken, about 0.25-0.3 s per word, and never goes blank between words.
+- **Pairing**: 2-3 word cards appear for short function words ("a pirate", "the sea", "your old desk", "into the plates").
+
+## S2.6 Sound
+
+| | A | B | C | D |
+|---|---|---|---|---|
+| Loudness (integrated) | −15.6 LUFS | −14.0 | −14.0 | −14.0 |
+| Loudness range | 3.5 LU | 2.4 | 1.8 | 3.2 |
+| Silences > 0.25 s (below −35 dB) | 0 | 0 | 0 | 0 |
+
+- **No silence at all**: the voice runs without pauses longer than 0.25 s, and music or SFX fill every gap.
+- Heavily compressed (LRA 1.8-3.5).
+
+## S2.7 Script (read word by word from the captions)
+
+| | A | B | C | D |
+|---|---|---|---|---|
+| Words | 145 | 245 | 223 | 213 |
+| Pace | 3.71 w/s | 3.79 w/s | 3.68 w/s | 3.27 w/s |
+| Sentences | 12 | 21 | 16 | 20 |
+| Words per sentence (median, range) | 10.5 (5-26) | 9 (4-32) | 12.5 (3-37) | 9 (3-24) |
+| Hook length | 14 words | 21 words | 13 words | 9 words |
+| "You see," at | 3.8 s (10 %) | 42.8 s (66 %) | 49.1 s (81 %) | 3.3 s (5 %) |
+| Questions | 0 | 3 | 1 | 0 |
+| Last sentence | 11 words | 32 words | 18 words | 20 words |
+| Mode | 2nd person ("if you...") | 3rd person story ("He...") | 2nd person ("Imagine your boss...") | 3rd person story ("He...") |
+
+All four together: median sentence 9 words, mean 12. Pace 3.3-3.8 words per second.
+
+**The formula, as written in all 4:**
+1. **Hook = one sentence, an absurd action or paradox stated as plain fact, no setup** (9-21 words):
+   - "He sawed gaps into a railroad every 39 feet."
+   - "He poured cooking oil into the sea with a pirate ship so close behind..."
+   - "If you fall asleep holding two steel balls, you might wake up a genius."
+   - "It's impossible to get fired in Japan, but companies found something way worse."
+2. **"You see," has two jobs**:
+   - Early (5-10 %): it opens the setup right after the hook (A, D).
+   - Late (66-81 %): it opens the real explanation after the story (B, C).
+3. **Setup with stakes in 1-2 sentences**, present tense, concrete numbers and details (39 feet, a canyon "so deep you
+   can't see the bottom", "six", "three years", "50 yards").
+4. **Escalation beats** start with "But", "So", "And", "Then":
+   - B: 3 "But", 3 "And"; D: 3 "And".
+   - Each beat makes it worse or makes the hero look dumber: others mock him in short quoted lines ("You're wrecking my railroad." /
+     "you're making soup?"), a rival seems to win, the boss is "thrilled".
+5. **A "weird" turn**: "Now, here's the weird part." (A) / "something weird happens." (D) / "Then one Monday... he's
+   gone." (C).
+6. **Explanation with an everyday analogy**:
+   - "Ever blown on a bowl of soup?" (B),
+   - a named concept: "a strange halfway state called hypnagogia" (A),
+   - the real rule: "Japanese law makes it almost impossible to fire someone, but there's no law against making
+     them miserable." (C).
+7. **Ironic payoff = the last sentence**, often a callback to the hook's props:
+   - "wake up holding the idea instead of the balls." (A)
+   - the wave "drops straight onto the pirates' deck." (B)
+   - "nobody can do nothing forever." (C)
+   - the perfect railroad "kicks sideways like a snake right as a train rolls onto it." (D)
+
+   The video ends on that last word: no outro, no call to action.
+8. **Tone**: deadpan and plain, with contractions. Each video has 1-2 exaggeration jokes, such as "Sounds like the worst nap
+   ever." and "the pirates couldn't be happier. Why waste a cannonball when the storm will do it for free?"
+
+## S2.8 Differences from Study 1 (the earlier 20-video study above)
+
+- **More camera motion than measured before.** Here the camera is still only 19-39 % of frames, against ~80 % "holds" in the old
+  study. These four newer videos move constantly, with 34-54 separate moves a minute.
+- **Captions sit at 70 % height** (measured), with a thick outline rather than a thin one.
+- One video (C) is drawn almost fully 2D (flat illustrated rooms with heavy outlines). The other three are 3D toon
+  worlds. Characters are the same in all four: white round heads, black stick limbs, pill-shaped bodies, small hats.
