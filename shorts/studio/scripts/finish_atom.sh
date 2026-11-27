@@ -4,6 +4,13 @@ set -e
 cd "$(dirname "$0")/.."
 P=out/atom/parts; mkdir -p $P
 ORDER="0-156 157-313 314-470 471-627 628-784 785-941 942-1097 1098-1254 1255-1411 1412-1568 1569-1725 1726-1882 1883-2039"
+# 1726-1882 was re-rendered as two halves (local 1726-1803 + render/atom-1804-1882).
+if [ ! -s $P/part_1726-1882.mp4 ]; then
+  [ -s $P/half_1804-1882.mp4 ] || { git -C ../.. fetch --depth=1 origin render/atom-1804-1882 &&
+    git -C ../.. show FETCH_HEAD:shorts/renders/part_1804-1882.mp4 > $P/half_1804-1882.mp4; }
+  printf "file 'half_1726-1803.mp4'\nfile 'half_1804-1882.mp4'\n" > $P/halves.txt
+  ffmpeg -v error -y -f concat -safe 0 -i $P/halves.txt -c copy $P/part_1726-1882.mp4
+fi
 for R in $ORDER; do
   [ -s $P/part_$R.mp4 ] && continue
   git -C ../.. fetch --depth=1 origin render/atom-$R
